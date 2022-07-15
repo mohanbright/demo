@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="item"
+            type="com.journalmetro.app.post.model.RelatedPost" />
+        <variable
+            name="callback"
+            type="com.journalmetro.app.ui.common.adapter.ItemSelectionCallback" />
+        <variable
+            name="showHeader"
+            type="Boolean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/item_image"
+                android:layout_width="@dimen/size_posts_item_image_height"
+                android:layout_height="@dimen/size_posts_item_image_height"
+                android:scaleType="centerCrop"
+                android:paddingTop="6dp"
+                app:loadImageAsSmall="@{item.featuredMedia.src}"/>
+
+            <LinearLayout
+                android:id="@+id/item_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size_posts_item_image_right_margin"
+                android:onClick="@{(view) -> callback.onItemSelected(item, view)}"
+                android:orientation="vertical">
+
+                <!--
+                <TextView
+                    android:id="@+id/item_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Category"
+                    android:textColor="@color/colorTextGrey_2"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/size_posts_item_text_category"
+                    tools:text="Category"/>-->
+
+                <TextView
+                    android:id="@+id/item_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    android:text="@{item.title}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/size_posts_item_text_title"
+                    android:fontFamily="@font/acumin_pro_semibold"
+                    android:maxLines="3"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="4sp"
+                    tools:text="Title\nTitle\nTitle"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/item_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="2dp"
+                        android:text="@{item.dateReadable}"
+                        android:textSize="@dimen/size_posts_item_text_date"
+                        android:textColor="@color/colorTextGrey_1"
+                        android:fontFamily="@font/acumin_pro_cond_medium"
+                        tools:text="16 Fevrier 2021"/>
+
+                    <ImageView
+                        android:id="@+id/item_save"
+                        android:layout_width="@dimen/size_posts_item_icon"
+                        android:layout_height="@dimen/size_posts_item_icon"
+                        android:layout_gravity="end"
+                        android:paddingBottom="@dimen/size_posts_item_divider_top_margin"
+                        android:onClick="@{(view) -> callback.onItemSelected(item, view)}"
+                        android:src="@{item.isSavedByUser ? @drawable/ic_save_selected : @drawable/ic_save_unselected_green}"
+                        tools:src="@drawable/ic_save_unselected_green"/>
+                </FrameLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Bottom line. -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorListDivider" />
+    </LinearLayout>
+</layout>

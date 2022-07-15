@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "639117111404",
+    "project_id": "journalmetro-qa",
+    "storage_bucket": "journalmetro-qa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639117111404:android:e416205588e29eeb71e849",
+        "android_client_info": {
+          "package_name": "com.journalmetro.app.qa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "639117111404-1qiv2chlud5dudvtgcaqnsdd3erd4rqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9gnzz5mfknlhHghI6B-12Vv2jxCO-_3k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "639117111404-1qiv2chlud5dudvtgcaqnsdd3erd4rqd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "639117111404-dshajtachmcg4qvlejm2c02c93cu10kp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.journalmetro.app.JournalMetro"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

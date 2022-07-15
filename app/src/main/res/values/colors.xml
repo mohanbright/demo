@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/mainBackground</color>
+    <color name="colorPrimaryDark">@color/textDark</color>
+    <color name="colorAccent">@color/bottomBarSelected</color>
+
+    <color name="bottomBarSelected">@color/colorSelected</color>
+    <color name="bottomBarUnselected">@color/colorUnselected</color>
+
+    <color name="mainBackground">#FFFFFF</color>
+    <color name="lines">#E6E6E6</color>
+    <color name="contentBoxes">#FFFFFF</color>
+    <color name="textDark">#616161</color>
+    <color name="placeHolderText">#C2C2C4</color>
+    <color name="linksCtas">#297D9E</color>
+    <color name="icons">#63B5D8</color>
+    <color name="secondaryCta">#4F7D7D</color>
+    <color name="disabledCta">#CECECE</color>
+    <color name="availableGood">#6CA083</color>
+    <color name="notAvailable">#6A8A9A</color>
+    <color name="error">#BC5950</color>
+    <color name="textError">#E02020</color>
+    <color name="flowGradientStart">#E4EDF0</color>
+    <color name="flowGradientEnd">#FAFAFA</color>
+    <color name="changeMainInfoGradientStart">#4E6C7A</color>
+    <color name="changeMainInfoGradientEnd">#6498AD</color>
+    <color name="gradientTutorialsStart">#4E637A</color>
+    <color name="gradientTutorialsEnd">#8ABBBA</color>
+
+    <color name="colorBlockquote">#45846C</color>
+    <color name="colorMap">#45846C</color>
+    <color name="colorSelected">#45846C</color>
+    <color name="colorUnselected">#757575</color>
+    <color name="colorSplashBackground">#1D443E</color>
+    <color name="colorListDivider">#2B2B2C</color>
+    <color name="colorTextGrey_0">#ADADAD</color>
+    <color name="colorTextGrey_1">#757575</color>
+    <color name="colorTextGrey_2">#1D443E</color>
+    <color name="colorTextGrey_3">#2B2B2C</color>
+    <color name="colorTextWhite_1">#FFFFFF</color>
+    <color name="colorTextDisabled">#adadad</color>
+    <color name="colorDividerBorough">#F7F7F7</color>
+    <color name="colorAlphaBlack">#B7000000</color>
+    <color name="colorHomepageTheme">#FFFFFF</color>
+    <color name="colorQuoteTheme">#74C099</color>
+    <color name="colorHomeCardBackground">#06443E</color>
+    <color name="colorInternetError">#424242</color>
+    <color name="colorDividerBottomBar">#D4D4D4</color>
+    <color name="colorDarkIcons">#1d443e</color>
+    <color name="colorBreakingNewsLabel">#D1342D</color>
+    <color name="topBarLine">#1D443E</color>
+
+    <!-- Partner info in only Explorez post detail. -->
+    <color name="colorPartnerInfoBackground">#ADADAD</color>
+    <color name="colorPartnerInfoText">#FFFFFF</color>
+
+    <!-- My articles tab bar. -->
+    <color name="colorMesFavoriteTopTabSelected">#1D443E</color>
+    <color name="colorMesFavoriteTopTabUnselected">#2B2B2C</color>
+    <!-- Daily Motion player. -->
+    <color name="colorVideoBackground">#C4000000</color>
+
+</resources>

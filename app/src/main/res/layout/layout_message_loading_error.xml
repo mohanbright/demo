@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@drawable/bg_internet_error"
+    android:alpha="0.97">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="14dp"
+        android:layout_gravity="start"
+        android:weightSum="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/acumin_pro_bold"
+            android:textSize="14sp"
+            android:textColor="@color/colorTextWhite_1"
+            android:gravity="center_vertical"
+            android:text="@string/title_error_internet"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/acumin_pro_regular"
+            android:textSize="14sp"
+            android:textColor="@color/colorTextWhite_1"
+            android:gravity="center_vertical"
+            android:text="@string/info_error_internet"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/button_try_again"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="25dp"
+        android:src="@drawable/ic_try_again"
+        android:layout_gravity="center_vertical|end"/>
+</FrameLayout>

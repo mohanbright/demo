@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.journalmetro.app.ui.sections.news.SectionNewsListViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/top_bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/colorTextGrey_2"
+            android:textStyle="bold"
+            android:textSize="@dimen/top_bar_text_size" />
+
+        <ImageButton
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:padding="@dimen/places_autocomplete_button_padding"
+            android:src="@drawable/ic_search"
+            android:layout_gravity="center_vertical|end"/>
+
+        <ImageButton
+            android:id="@+id/top_bar_button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:src="@drawable/ic_arrow_left"
+            android:padding="@dimen/places_autocomplete_button_padding"
+            android:focusable="true"
+            android:clickable="true"
+            android:onClick="onClickTopBarBackButton"
+            android:layout_gravity="center_vertical|start"/>
+
+        <View
+            android:id="@+id/top_bar_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_top_bar_height"
+            android:background="@color/topBarLine"
+            android:layout_gravity="bottom"/>
+    </FrameLayout>
+</layout>

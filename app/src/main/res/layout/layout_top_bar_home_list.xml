@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/top_bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/colorTextGrey_2"
+            android:fontFamily="@font/acumin_pro_semibold"
+            android:textSize="@dimen/top_bar_text_size" />
+
+        <ImageButton
+            android:id="@+id/top_bar_button_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:padding="@dimen/places_autocomplete_button_padding"
+            android:src="@drawable/ic_search"
+            android:layout_gravity="center_vertical|end"/>
+
+        <ImageButton
+            android:id="@+id/top_bar_button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:padding="@dimen/places_autocomplete_button_padding"
+            android:src="@drawable/ic_arrow_left"
+            android:focusable="true"
+            android:clickable="true"
+            android:onClick="onClickTopBarBackButton"
+            android:layout_gravity="center_vertical|start"/>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="androidx.recyclerview.widget.RecyclerView" />
+        <import type="android.view.View" />
+        <variable
+            name="adapter"
+            type="com.journalmetro.app.ui.common.adapter.OmniAdapter" />
+        <variable
+            name="viewModel"
+            type="com.journalmetro.app.ui.sections.news.SectionNewsListViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/list_sub_sections"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="@{viewModel.isTabLayoutVisible() ? View.VISIBLE : View.GONE}"
+                app:tabIndicatorColor="@color/availableGood"
+                app:tabSelectedTextColor="@color/colorTextGrey_3"
+                app:tabTextColor="@color/colorTextGrey_2"
+                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                app:tabMode="scrollable"
+                android:stretchColumns="*"
+                app:tabGravity="fill"
+                app:tabRippleColor="@null"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false">
+
+                <include
+                    android:id="@+id/list_posts"
+                    layout="@layout/component_list_with_loading_indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    bind:adapter="@{adapter}"
+                    bind:isLoading="@{viewModel.isLoading}"
+                    bind:orientation="@{RecyclerView.VERTICAL}" />
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeMainFragment"
+            android:icon="@drawable/selector_home"
+            android:title="@string/bottom_bar_news" />
+
+        <item
+            android:id="@+id/localFragment"
+            android:icon="@drawable/selector_location"
+            android:title="@string/bottom_bar_local" />
+
+        <item
+            android:id="@+id/myArticleListFragment"
+            android:icon="@drawable/selector_save"
+            android:title="@string/bottom_bar_my_articles" />
+
+        <item
+            android:id="@+id/videoListFragment"
+            android:icon="@drawable/selector_video"
+            android:title="@string/bottom_bar_videos" />
+
+        <item
+            android:id="@+id/sectionsFragment"
+            android:icon="@drawable/selector_section"
+            android:title="@string/bottom_bar_sections" />
+    </group>
+</menu>

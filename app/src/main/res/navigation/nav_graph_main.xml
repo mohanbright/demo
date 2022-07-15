@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/homeMainFragment">
+
+    <!-- Bottom Bar Home Main Fragment -->
+    <fragment
+        android:id="@+id/homeMainFragment"
+        android:name="com.journalmetro.app.ui.home.main.HomeMainFragment"
+        android:label="HomeMainFragment"
+        tools:layout="@layout/fragment_home_main">
+
+        <!-- Navigate Article Detail Fragment -->
+        <action
+            android:id="@+id/action_homeMainFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+
+        <!-- Navigate Search Fragment -->
+        <action
+            android:id="@+id/action_homeMainFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+
+        <!-- Navigate Section Details -->
+        <action
+            android:id="@+id/action_homeMainFragment_to_sectionNewsListFragment"
+            app:destination="@id/sectionNewsListFragment" />
+
+        <!-- Navigate Video Detail -->
+        <action
+            android:id="@+id/action_homeMainFragment_to_videoDetailFragment"
+            app:destination="@id/videoDetailFragment" />
+    </fragment>
+
+    <!-- Extra Page Home List Fragment -->
+    <fragment
+        android:id="@+id/homeListFragment"
+        android:name="com.journalmetro.app.ui.home.list.HomeListFragment"
+        android:label="HomeListFragment"
+        tools:layout="@layout/fragment_home_list">
+
+        <!-- Category Id to fetch post list -->
+        <argument
+            android:name="selected_category_id"
+            app:argType="long" />
+        <argument
+            android:name="selected_category_name"
+            app:argType="string" />
+
+        <!-- Navigate Article Detail Fragment -->
+        <action
+            android:id="@+id/action_homeListFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+
+        <!-- Navigate Search Fragment -->
+        <action
+            android:id="@+id/action_homeListFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+
+    <!-- Bottom Bar MLocal Fragment -->
+    <fragment
+        android:id="@+id/localFragment"
+        android:name="com.journalmetro.app.ui.local.LocalFragment"
+        android:label="LocalFragment"
+        tools:layout="@layout/fragment_local">
+
+        <!-- Navigate Article Detail Fragment -->
+        <action
+            android:id="@+id/action_localFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+
+        <!-- Navigate Video Detail -->
+        <action
+            android:id="@+id/action_localFragment_to_videoDetailFragment"
+            app:destination="@id/videoDetailFragment" />
+    </fragment>
+
+    <!-- Bottom Bar My Articles Fragment -->
+    <fragment
+        android:id="@+id/myArticleListFragment"
+        android:name="com.journalmetro.app.ui.articles.MyArticleListFragment"
+        android:label="MyArticleListFragment"
+        tools:layout="@layout/fragment_my_article_list">
+
+        <!-- Navigate Article Detail Fragment -->
+        <action
+            android:id="@+id/action_myArticleListFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+        <action
+            android:id="@+id/action_myArticleListFragment_to_videoDetailFragment"
+            app:destination="@id/videoDetailFragment" />
+
+    </fragment>
+
+    <!-- Bottom Bar Videos -->
+    <fragment
+        android:id="@+id/videoListFragment"
+        android:name="com.journalmetro.app.ui.videos.VideoListFragment"
+        android:label="VideoListFragment"
+        tools:layout="@layout/fragment_video_list">
+
+        <!-- Navigate Video Detail Fragment -->
+        <action
+            android:id="@+id/action_videoListFragment_to_videoDetailFragment"
+            app:destination="@id/videoDetailFragment" />
+
+        <!-- Navigate Search Fragment -->
+        <action
+            android:id="@+id/action_videoListFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+
+    <!-- Bottom Bar Sections -->
+    <fragment
+        android:id="@+id/sectionsFragment"
+        android:name="com.journalmetro.app.ui.sections.SectionsFragment"
+        android:label="SectionsFragment"
+        tools:layout="@layout/fragment_sections" >
+
+        <!-- Navigate Section News List Fragment -->
+        <action
+            android:id="@+id/action_sectionsFragment_to_sectionNewsListFragment"
+            app:destination="@id/sectionNewsListFragment" />
+
+        <!-- Navigate Search Fragment -->
+        <action
+            android:id="@+id/action_sectionsFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+
+        <!-- Navigate Web View Fragment -->
+        <action
+            android:id="@+id/action_sectionsFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+
+        <!-- Navigate Daily Recap Fragment -->
+        <action
+            android:id="@+id/action_sectionsFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+
+    <!-- Detail fragments. -->
+    <fragment
+        android:id="@+id/articleDetailFragment"
+        android:name="com.journalmetro.app.ui.details.article.ArticleDetailFragment"
+        android:label="ArticleDetailFragment">
+        <argument
+            android:name="post"
+            app:argType="com.journalmetro.app.post.model.Post" />
+        <argument
+            android:defaultValue="false"
+            app:argType="boolean"
+            android:name="isBreakingNews" />
+        <action
+            android:id="@+id/action_articleDetailFragment_self"
+            app:destination="@id/articleDetailFragment" />
+    </fragment>
+
+    <!-- Video Detail fragments. -->
+    <fragment
+        android:id="@+id/videoDetailFragment"
+        android:name="com.journalmetro.app.ui.details.video.VideoDetailFragment"
+        android:label="VideoDetailFragment">
+        <argument
+            android:name="post"
+            app:argType="com.journalmetro.app.post.model.Post" />
+
+        <!-- Navigate Search Fragment -->
+        <action
+            android:id="@+id/action_videoDetailFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+
+    <!-- Extra Page Section News List Fragment -->
+    <fragment
+        android:id="@+id/sectionNewsListFragment"
+        android:name="com.journalmetro.app.ui.sections.news.SectionNewsListFragment"
+        android:label="SectionNewsListFragment" >
+        <argument
+            android:name="section_parent_model"
+            app:argType="com.journalmetro.app.section.model.Section" />
+        <argument
+            android:name="section_child_id"
+            app:argType="long" />
+
+        <!-- Navigate Article Detail Fragment -->
+        <action
+            android:id="@+id/action_sectionNewsListFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+
+        <!-- Navigate Search Fragment -->
+        <action
+            android:id="@+id/action_sectionNewsListFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+
+        <!-- Navigate Video Detail -->
+        <action
+            android:id="@+id/action_sectionNewsListFragment_to_videoDetailFragment"
+            app:destination="@id/videoDetailFragment" />
+    </fragment>
+
+    <!-- Search Fragment -->
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.journalmetro.app.ui.search.SearchFragment"
+        android:label="SearchFragment" >
+
+        <!-- Navigate Article Detail Fragment -->
+        <action
+            android:id="@+id/action_searchFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+
+        <!-- Navigate Video Detail -->
+        <action
+            android:id="@+id/action_searchFragment_to_videoDetailFragment"
+            app:destination="@id/videoDetailFragment" />
+    </fragment>
+
+    <!-- Notification List Fragment -->
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.journalmetro.app.ui.notification.NotificationListFragment"
+        android:label="NotificationsFragment" >
+
+        <!-- Navigate Article Detail Fragment -->
+        <action
+            android:id="@+id/action_notificationsFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+    </fragment>
+
+    <!-- In app Web Fragment -->
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.journalmetro.app.ui.web.WebViewFragment"
+        android:label="WebViewFragment">
+
+        <!-- Arguments -->
+        <argument
+            android:name="web_site_link"
+            app:argType="string" />
+    </fragment>
+</navigation>

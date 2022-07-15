@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="item"
+            type="com.journalmetro.app.homeSection.model.HomePost" />
+        <variable
+            name="callback"
+            type="com.journalmetro.app.ui.common.adapter.ItemSelectionCallback" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="221dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:background="?android:selectableItemBackground">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingTop="4dp"
+            android:text="@{item.order}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/size_posts_item_text_title"
+            android:layout_marginTop="41dp"
+            android:fontFamily="@font/acumin_pro_bold"
+            tools:text="1." />
+
+        <LinearLayout
+            android:id="@+id/item_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_posts_item_top_margin"
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="20dp"
+            android:onClick="@{(view) -> callback.onItemSelected(item, view)}"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{item.isVisibleCategoryName() ? View.VISIBLE : View.GONE }"
+                android:text='@{item.getParsedCategoryName()}'
+                android:textAllCaps="true"
+                android:layout_marginBottom="2dp"
+                android:textColor="@color/colorTextGrey_2"
+                android:textSize="@dimen/size_posts_item_text_category"
+                android:fontFamily="@font/acumin_pro_cond_bold"
+                tools:text="Category" />
+
+            <TextView
+                android:id="@+id/item_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lineSpacingExtra="6sp"
+                android:maxLines="4"
+                android:paddingTop="4dp"
+                android:text="@{item.parsedTitle}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/size_posts_item_text_title"
+                android:fontFamily="@font/acumin_pro_bold"
+                tools:text="Title\nTitle\nTitle\nTitle" />
+
+            <FrameLayout
+                android:id="@+id/item_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/item_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@{item.readableDateFormat}"
+                    android:textColor="@color/colorTextGrey_1"
+                    android:textSize="@dimen/size_posts_item_text_date"
+                    android:fontFamily="@font/acumin_pro_cond_medium"
+                    tools:text="16 Fevrier 2021" />
+            </FrameLayout>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

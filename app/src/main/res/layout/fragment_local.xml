@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="androidx.recyclerview.widget.RecyclerView" />
+        <import type="android.view.View" />
+        <variable
+            name="adapterPostList"
+            type="com.journalmetro.app.ui.common.adapter.OmniAdapter" />
+        <variable
+            name="adapterBoroughList"
+            type="com.journalmetro.app.ui.common.adapter.OmniAdapter" />
+        <variable
+            name="viewModel"
+            type="com.journalmetro.app.ui.local.LocalViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Map Part. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="3"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.isShowBoroughList ? View.GONE: View.VISIBLE}">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/map_container"
+                android:layout_marginTop="-26dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.36"/>
+        </LinearLayout>
+
+        <!-- List Part. -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:id="@+id/selection_layout"
+            android:visibility="@{viewModel.isShowBoroughList ? View.VISIBLE: View.GONE}"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/list_borough"
+                layout="@layout/component_list_with_loading_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                bind:adapter="@{adapterBoroughList}"
+                bind:isLoading="@{viewModel.isLoadingBoroughList()}"
+                bind:orientation="@{RecyclerView.VERTICAL}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Bottom News Part. -->
+        <include
+            android:id="@+id/list_post"
+            layout="@layout/component_local_list_with_loading_indicator"
+            android:visibility="@{viewModel.isShowBoroughList ? View.GONE: View.VISIBLE}"
+            bind:adapter="@{adapterPostList}"
+            bind:isLoading="@{viewModel.isLoadingPostList()}"
+            bind:orientation="@{RecyclerView.VERTICAL}" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

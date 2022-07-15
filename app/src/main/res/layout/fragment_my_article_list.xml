@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.recyclerview.widget.RecyclerView" />
+        <import type="android.view.View"/>
+
+        <variable
+            name="adapter"
+            type="com.journalmetro.app.ui.common.adapter.OmniAdapter" />
+
+        <variable
+            name="viewModel"
+            type="com.journalmetro.app.ui.articles.MyArticleListViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="@color/colorMesFavoriteTopTabSelected"
+                app:tabInlineLabel="true"
+                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                app:tabTextColor="@color/tab_my_article_list" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/list_my_article"
+                    layout="@layout/component_list_with_loading_indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    bind:adapter="@{adapter}"
+                    bind:isLoading="@{viewModel.isLoading}"
+                    bind:orientation="@{RecyclerView.VERTICAL}" />
+
+                <LinearLayout
+                    android:visibility="@{viewModel.hasSavedData ? View.GONE : View.VISIBLE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/acumin_pro_bold"
+                        android:textSize="24sp"
+                        android:textColor="@color/colorTextGrey_2"
+                        android:lineSpacingExtra="6sp"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/title_saved_article_page"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/info_saved_article_page"
+                        android:textColor="@color/colorTextGrey_2"
+                        android:textSize="16sp"
+                        android:lineSpacingExtra="6sp"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="@{viewModel.hasFavoriteData ? View.GONE : View.VISIBLE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/acumin_pro_bold"
+                        android:textSize="24sp"
+                        android:textColor="@color/colorTextGrey_2"
+                        android:lineSpacingExtra="6sp"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/title_favorite_article_page"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/info_favorite_article_page"
+                        android:textColor="@color/colorTextGrey_2"
+                        android:textSize="16sp"
+                        android:lineSpacingExtra="6sp"
+                        android:gravity="center_horizontal" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

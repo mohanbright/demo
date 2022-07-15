@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="androidx.recyclerview.widget.RecyclerView"/>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.journalmetro.app.ui.details.article.ArticleDetailViewModel" />
+        <variable
+            name="adapterRelatedPost"
+            type="com.journalmetro.app.ui.common.adapter.OmniAdapter" />
+        <variable
+            name="adapterSuggestedPost"
+            type="com.journalmetro.app.ui.common.adapter.OmniAdapter" />
+        <variable
+            name="adapterExplorerPost"
+            type="com.journalmetro.app.ui.common.adapter.OmniAdapter" />
+        <variable
+            name="orientation"
+            type="Integer" />
+    </data>
+
+    <!--<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/detail_swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@color/colorBreakingNewsLabel"
+                android:fontFamily="@font/acumin_pro_cond_black"
+                android:gravity="center"
+                android:visibility="@{viewModel.post.isBreakingNews ? View.VISIBLE : View.GONE}"
+                android:text="@string/breaking_news"
+                android:textAllCaps="true"
+                android:textColor="@color/colorTextWhite_1"
+                android:textSize="22sp" />
+
+            <!-- This is for article type post which has video. -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:visibility="@{viewModel.post.isIframeVisible ? View.VISIBLE : View.GONE}">
+
+                <!-- This is for article type post which has video. -->
+                <WebView
+                    android:id="@+id/item_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"/>
+
+                <TextView
+                    android:id="@+id/item_video_domain_message"
+                    android:visibility="@{viewModel.post.isVideoDomainRestricted ? View.VISIBLE : View.GONE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/acumin_pro_bold"
+                    android:textSize="14sp"
+                    android:padding="20dp"
+                    android:layout_margin="6dp"
+                    android:textColor="@color/colorTextWhite_1"
+                    android:gravity="center"
+                    android:text="@string/info_video_error"
+                    android:lineSpacingExtra="8sp"
+                    android:onClick="onClickTopBarBackButton"
+                    android:background="@drawable/bg_internet_error"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/item_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/item_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"
+                        android:scaleType="centerCrop"
+                        android:background="@color/colorAccent"
+                        android:visibility="@{viewModel.post.isIframeVisible ? View.GONE : View.VISIBLE}"
+                        app:imageUrl="@{viewModel.post.featuredMedia.sourceUrl}"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/item_image_desc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorTextGrey_1"
+                            android:textSize="12sp"
+                            android:text="@{viewModel.post.featuredMedia.getImageDetail}"
+                            android:fontFamily="@font/acumin_pro_light"
+                            android:lineSpacingExtra="2sp"
+                            tools:text="Image description\nImage description"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="@{viewModel.post.isPhotographerAvailable ? View.VISIBLE : View.GONE}">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorTextGrey_0"
+                                android:textSize="12sp"
+                                android:paddingTop="4dp"
+                                android:lineSpacingExtra="4sp"
+                                android:text="@string/detail_photo_tag"
+                                android:fontFamily="@font/acumin_pro_cond_medium"
+                                tools:text="Photo : "/>
+
+                            <TextView
+                                android:id="@+id/item_image_source"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorTextGrey_0"
+                                android:textSize="12sp"
+                                android:paddingTop="4dp"
+                                android:lineSpacingExtra="4sp"
+                                android:text="@{viewModel.post.featuredMedia.getPhotoCreditSafely}"
+                                android:fontFamily="@font/acumin_pro_cond_medium"
+                                tools:text="Photographer"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/item_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorTextGrey_3"
+                            android:textSize="24sp"
+                            android:fontFamily="@font/acumin_pro_black"
+                            android:maxLines="3"
+                            android:paddingTop="6dp"
+                            android:lineSpacingExtra="4sp"
+                            android:text="@{viewModel.post.title}"
+                            tools:text="Title"/>
+
+                        <TextView
+                            android:id="@+id/item_author"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorTextGrey_3"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/acumin_pro_cond_bold"
+                            android:layout_marginTop="14dp"
+                            android:text="@{viewModel.post.getParsedAuthorName()}"
+                            tools:text="Author"/>
+
+                        <TextView
+                            android:id="@+id/item_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorTextGrey_3"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="14dp"
+                            android:text="@{viewModel.post.dateTimeReadable}"
+                            android:fontFamily="@font/acumin_pro_cond_medium"
+                            tools:text="Date"/>
+
+                        <!-- Partner info and it is only for Explorez news -->
+                        <TextView
+                            android:id="@+id/item_partner_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="@{viewModel.post.isPartnerPost ? View.VISIBLE : View.GONE}"
+                            android:textColor="@color/colorPartnerInfoText"
+                            android:textSize="@dimen/size_posts_item_text_partner"
+                            android:text="@string/info_partner"
+                            android:fontFamily="@font/acumin_pro_cond_bold"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center"
+                            android:background="@color/colorPartnerInfoBackground"
+                            android:textAllCaps="true"
+                            tools:text="@string/info_partner"/>
+
+                        <TextView
+                            android:id="@+id/item_spot"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorTextGrey_3"
+                            android:textSize="20sp"
+                            android:text="@{viewModel.post.excerpt}"
+                            android:fontFamily="@font/acumin_pro_regular"
+                            android:lineSpacingExtra="6sp"
+                            android:visibility="gone"
+                            tools:text="Spot"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:visibility="gone"
+                            android:layout_height="1dp"
+                            android:background="@color/colorListDivider"
+                            android:layout_marginTop="25dp"/>
+                    </LinearLayout>
+
+                    <!--
+                     Programmatically creating text views because of Content list and Ads.
+                     -->
+                    <LinearLayout
+                        android:id="@+id/item_contents"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/suggested_article_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:visibility="@{viewModel.isVisibleSuggestedPosts ? View.VISIBLE : View.GONE}"
+                        app:setAdapter="@{adapterSuggestedPost}"
+                        app:setOrientation="@{RecyclerView.VERTICAL}" />
+
+                    <!--
+                    Programmatically creating ads views or special views.
+                    -->
+                    <LinearLayout
+                        android:id="@+id/item_contents_between_suggested_and_related_lists"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/related_article_list"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{viewModel.isVisibleRelatedPosts ? View.VISIBLE : View.GONE}"
+                        app:setAdapter="@{adapterRelatedPost}"
+                        app:setOrientation="@{RecyclerView.VERTICAL}" />
+
+                    <!--
+                    Programmatically creating ads views or special views.
+                    -->
+                    <LinearLayout
+                        android:id="@+id/item_contents_between_related_and_explore_lists"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/explorer_article_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorDividerBorough"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:visibility="@{viewModel.isVisibleExplorerPosts ? View.VISIBLE : View.GONE}"
+                        app:setAdapter="@{adapterExplorerPost}"
+                        app:setOrientation="@{RecyclerView.VERTICAL}" />
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isLoading()}"
+            android:layout_gravity="center" />
+    </FrameLayout>
+    <!--</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+</layout>

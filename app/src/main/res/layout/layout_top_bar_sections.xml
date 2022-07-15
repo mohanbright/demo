@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/metro_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_metro" />
+
+        <ImageButton
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_gravity="end|center_vertical"
+            android:padding="@dimen/places_autocomplete_button_padding"
+            android:src="@drawable/ic_search" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_top_bar_height"
+            android:background="@color/topBarLine"
+            android:layout_gravity="bottom"/>
+    </FrameLayout>
+</layout>

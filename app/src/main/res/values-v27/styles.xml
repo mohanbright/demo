@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Base App Color Theme -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Base Windows Theme -->
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:colorBackground">@color/colorPrimary</item>
+
+        <!-- Base Text Theme-->
+        <item name="android:textSize">@dimen/base_text_size</item>
+        <item name="android:textColor">@color/placeHolderText</item>
+        <item name="android:actionMenuTextColor">@color/linksCtas</item>
+
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:actionMenuTextAppearance">@style/ActionBarTextAppearance</item>
+
+        <!--For devices with notches at the top of the display, this will make the UI appear either side of the notch-->
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+
+    <!-- Splash Screen Theme -->
+    <style name="SplashTheme" parent = "Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_splash_screen</item>
+    </style>
+</resources>

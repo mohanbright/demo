@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <dimen name="base_text_size">17sp</dimen>
+
+        <!-- Top Bar -->
+        <dimen name="size_top_bar_home_search_margin">8dp</dimen>
+        <dimen name="top_bar_search_padding_end">30dp</dimen>
+        <dimen name="size_top_bar_detail_margin">4dp</dimen>
+
+        <!-- Post List Item -->
+        <dimen name="size_posts_item_height">144dp</dimen>
+        <dimen name="size_posts_item_top_margin">20dp</dimen>
+        <dimen name="size_posts_item_image_height">86dp</dimen>
+        <dimen name="size_posts_item_image_right_margin">24dp</dimen>
+        <dimen name="size_posts_item_divider_top_margin">10dp</dimen>
+        <dimen name="size_posts_item_date_bottom_margin">12dp</dimen>
+        <dimen name="size_posts_item_text_breaking_news">12sp</dimen>
+        <dimen name="size_posts_item_text_category">15sp</dimen>
+        <dimen name="size_posts_item_text_title">18sp</dimen>
+        <dimen name="size_posts_item_text_date">15sp</dimen>
+        <dimen name="size_posts_item_text_partner">16sp</dimen>
+        <dimen name="size_posts_item_icon">30dp</dimen>
+        <dimen name="size_posts_item_horizontal_padding">18dp</dimen>
+        <dimen name="size_posts_item_vertical_padding">16dp</dimen>
+
+        <!-- Video Post List Item -->
+        <dimen name="size_video_posts_item_height">120dp</dimen>
+
+        <!-- Section List Item -->
+        <dimen name="size_sections_item_icons_height">36dp</dimen>
+        <dimen name="size_sections_item_icon_star_width">36dp</dimen>
+        <dimen name="size_sections_item_icon_star_margin_right">20dp</dimen>
+        <dimen name="size_sections_item_icon_arrow_width">28dp</dimen>
+        <dimen name="size_sections_item_icon_arrow_margin_top">4dp</dimen>
+        <dimen name="size_sections_item_icon_arrow_margin_right">36dp</dimen>
+
+        <!-- Subsection List Item -->
+        <dimen name="size_subsections_item_text_margin_left">40dp</dimen>
+        <dimen name="size_subsections_item_icon_star_size">36dp</dimen>
+        <dimen name="size_subsections_item_icon_star_margin_right">20dp</dimen>
+
+        <dimen name="top_bar_text_size">17sp</dimen>
+        <dimen name="post_item_heading_image_height">220dp</dimen>
+
+        <!--Player-->
+        <dimen name="player_default_height">230dp</dimen>
+
+        <!--Search History-->
+        <dimen name="size_search_item_text_view">16sp</dimen>
+
+        <!-- Top Bar Line -->
+        <dimen name="size_top_bar_height">3dp</dimen>
+
+</resources>

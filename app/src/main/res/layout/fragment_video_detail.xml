@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.recyclerview.widget.RecyclerView" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.journalmetro.app.ui.details.video.VideoDetailViewModel" />
+
+        <variable
+            name="orientation"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ProgressBar
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isLoading()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="@{!viewModel.isLoading()}">
+
+            <RelativeLayout
+                android:id="@+id/constraintPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorVideoBackground">
+
+
+                <com.dailymotion.android.player.sdk.PlayerWebView
+                    android:id="@+id/dailyMotionPlayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/player_default_height"
+                    android:background="@color/colorVideoBackground" />
+
+            </RelativeLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/contentConstraint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraintPlayer">
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/item_scroll_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true">
+
+                    <LinearLayout
+                        android:id="@+id/layout_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/size_posts_item_horizontal_padding"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/item_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/size_posts_item_horizontal_padding"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="@dimen/size_posts_item_horizontal_padding"
+                            android:fontFamily="@font/acumin_pro_black"
+                            android:lineSpacingExtra="4sp"
+                            android:maxLines="3"
+                            android:text="@{viewModel.post.title}"
+                            android:textColor="@color/colorTextGrey_3"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            tools:text="Title" />
+
+                        <TextView
+                            android:id="@+id/item_author"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/size_posts_item_horizontal_padding"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="@dimen/size_posts_item_horizontal_padding"
+                            android:fontFamily="@font/acumin_pro_cond_bold"
+                            android:text="@{viewModel.post.author.name}"
+                            android:textColor="@color/colorTextGrey_3"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            tools:text="Author" />
+
+                        <TextView
+                            android:id="@+id/item_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/size_posts_item_horizontal_padding"
+                            android:layout_marginRight="@dimen/size_posts_item_horizontal_padding"
+                            android:fontFamily="@font/acumin_pro_cond_medium"
+                            android:text="@{viewModel.post.dateTimeReadable}"
+                            android:textColor="@color/colorTextGrey_3"
+                            android:textSize="16sp"
+                            tools:text="Date" />
+
+                        <!-- Programmatically creating text views because of Content list and Ads.-->
+                        <LinearLayout
+                            android:id="@+id/item_contents"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" />
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

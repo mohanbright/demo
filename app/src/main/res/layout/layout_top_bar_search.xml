@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.journalmetro.app.ui.search.SearchViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:elevation="@dimen/cardview_default_elevation"
+            android:src="@drawable/ic_iconsclose"
+            android:visibility="@{viewModel.searchQuery.length()>0 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@id/search_edit_text"
+            app:layout_constraintEnd_toEndOf="@id/search_edit_text"
+            app:layout_constraintHorizontal_bias="0.96"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/search_edit_text" />
+
+        <EditText
+            android:id="@+id/search_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_search"
+            android:hint="@string/search_label"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="@dimen/size_top_bar_home_search_margin"
+            android:paddingEnd="@dimen/top_bar_search_padding_end"
+            android:text="@={viewModel.searchQuery}"
+            android:visibility="gone"
+            android:textSize="@dimen/size_search_item_text_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.7" />
+
+        <TextView
+            android:id="@+id/cancel_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:background="?selectableItemBackground"
+            android:textColor="@color/bottomBarSelected"
+            android:visibility="gone"
+            android:focusable="true"
+            android:textSize="@dimen/size_search_item_text_view"
+            android:clickable="true"
+            android:onClick="onClickTopBarBackButton"
+            app:layout_constraintBottom_toBottomOf="@id/search_edit_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/search_edit_text"
+            app:layout_constraintTop_toTopOf="@id/search_edit_text" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_top_bar_height"
+            android:background="@color/topBarLine"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

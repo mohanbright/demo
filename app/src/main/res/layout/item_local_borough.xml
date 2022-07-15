@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="item"
+            type="com.journalmetro.app.locals.model.Feature" />
+        <variable
+            name="callback"
+            type="com.journalmetro.app.ui.common.adapter.ItemSelectionCallback" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:selectableItemBackground">
+
+        <TextView
+            android:id="@+id/section_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/browser_actions_context_menu_min_padding"
+            android:onClick="@{(view) -> callback.onItemSelected(item, view)}"
+            android:text="@{item.properties.categoryName}"
+            android:textColor="@color/colorTextGrey_3"
+            android:textSize="@dimen/top_bar_text_size"
+            android:fontFamily="@font/acumin_pro_regular"
+            tools:text="Test" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorDividerBorough"
+            android:layout_marginStart="@dimen/browser_actions_context_menu_min_padding"
+            android:layout_gravity="bottom"/>
+    </FrameLayout>
+</layout>

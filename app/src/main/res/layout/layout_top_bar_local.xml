@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="isShowBoroughList"
+            type="Boolean" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/top_bar_button_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/mainBackground"
+            android:padding="@dimen/places_autocomplete_button_padding"
+            android:src="@drawable/ic_close_green"
+            android:visibility="@{isShowBoroughList ? View.VISIBLE: View.GONE}"
+            android:layout_gravity="start|center_vertical"/>
+
+        <ImageButton
+            android:id="@+id/top_bar_button_borough_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/mainBackground"
+            android:padding="@dimen/places_autocomplete_button_padding"
+            android:src="@drawable/ic_icon_location_menu"
+            android:visibility="@{isShowBoroughList ? View.GONE: View.VISIBLE}"
+            android:layout_gravity="start|center_vertical"/>
+
+        <ImageButton
+            android:id="@+id/top_bar_button_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/mainBackground"
+            android:padding="@dimen/places_autocomplete_button_padding"
+            android:src="@drawable/ic_email"
+            android:visibility="@{isShowBoroughList ? View.GONE: View.VISIBLE}"
+            android:layout_gravity="end|center_vertical"/>
+
+        <TextView
+            android:id="@+id/top_bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:maxLines="2"
+            android:textColor="@color/colorSplashBackground"
+            android:textSize="@dimen/top_bar_text_size"
+            android:fontFamily="@font/acumin_pro_semibold"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            tools:text="TEST TEST TEST TEST TEST TEST TEST TEST TEST"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_top_bar_height"
+            android:background="@color/topBarLine"
+            android:layout_gravity="bottom"/>
+    </FrameLayout>
+</layout>

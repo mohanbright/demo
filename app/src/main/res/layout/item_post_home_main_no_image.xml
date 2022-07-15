@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="item"
+            type="com.journalmetro.app.homeSection.model.HomePost" />
+        <variable
+            name="callback"
+            type="com.journalmetro.app.ui.common.adapter.ItemSelectionCallback" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:selectableItemBackground">
+
+        <LinearLayout
+            android:id="@+id/item_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_posts_item_top_margin"
+            android:layout_marginBottom="23dp"
+            android:onClick="@{(view) -> callback.onItemSelected(item, view)}"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/item_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{item.isVisibleCategoryName() ? View.VISIBLE : View.GONE }"
+                    android:text='@{item.getParsedCategoryName()}'
+                    android:textAllCaps="true"
+                    android:layout_marginBottom="2dp"
+                    android:textColor="@color/colorTextGrey_2"
+                    android:textSize="@dimen/size_posts_item_text_category"
+                    android:fontFamily="@font/acumin_pro_cond_bold"
+                    tools:text="Category" />
+
+                <TextView
+                    android:id="@+id/item_breaking_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{item.isBreakingNews ? View.VISIBLE : View.GONE }"
+                    android:background="@drawable/bg_breaking_news"
+                    android:text="@string/breaking_news"
+                    android:textAllCaps="true"
+                    android:gravity="center"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="2dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:textColor="@color/colorTextWhite_1"
+                    android:textSize="@dimen/size_posts_item_text_breaking_news"
+                    android:fontFamily="@font/acumin_pro_cond_black"
+                    tools:text="@string/breaking_news" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/item_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lineSpacingExtra="6sp"
+                android:maxLines="3"
+                android:paddingTop="4dp"
+                android:text="@{item.parsedTitle}"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:fontFamily="@font/acumin_pro_semibold"
+                tools:text="Title\nTitle\nTitle" />
+
+            <FrameLayout
+                android:id="@+id/item_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/item_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@{item.readableDateFormat}"
+                    android:textColor="@color/colorTextGrey_1"
+                    android:textSize="@dimen/size_posts_item_text_date"
+                    android:fontFamily="@font/acumin_pro_cond_medium"
+                    tools:text="16 Fevrier 2021" />
+
+                <ImageView
+                    android:id="@+id/item_save"
+                    android:layout_width="@dimen/size_posts_item_icon"
+                    android:contentDescription="@null"
+                    android:layout_height="@dimen/size_posts_item_icon"
+                    android:layout_gravity="center_vertical|end"
+                    android:paddingBottom="@dimen/size_posts_item_divider_top_margin"
+                    android:onClick="@{(view) -> callback.onItemSelected(item, view)}"
+                    android:src="@{item.isSavedByUser ? @drawable/ic_save_selected : @drawable/ic_save_unselected_green}"
+                    tools:src="@drawable/ic_save_unselected_green" />
+            </FrameLayout>
+        </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="bottom"
+                android:background="@color/colorListDivider" />
+    </FrameLayout>
+</layout>

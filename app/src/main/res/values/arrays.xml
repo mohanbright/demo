@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="explore_items">
+        <!--<item>@string/explore_heading</item>-->
+        <item>@string/daily_recap</item>
+        <item>@string/metro_eye</item>
+        <item>@string/favourites</item>
+        <item>@string/metro_jobs</item>
+        <item>@string/contact_us</item>
+        <item>@string/advertise_with_us</item>
+        <item>@string/terms_of_use</item>
+
+    </string-array>
+
+    <!-- Empty links open real pages according to name control. -->
+    <string-array name="explore_items_urls">
+        <item></item>
+        <item>https://journalmetro.com/metro-a-loeil/</item>
+        <item>https://journalmetro.com/vote-populaire/</item>
+        <item>https://journalmetro.com/metro-emplois/</item>
+        <item>https://journalmetro.com/contactez-nous/</item>
+        <item>https://journalmetro.com/annoncez-avec-nous/</item>
+        <item>https://journalmetro.com/conditions-dutilisation/</item>
+    </string-array>
+</resources>

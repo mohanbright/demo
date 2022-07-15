@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">Métro</string>
+    <string name="default_notifications_channel_id" translatable="false">default</string>
+    <string name="example_value">Example value : %s</string>
+    <string name="title_field">Title</string>
+    <string name="description_field">Description</string>
+    
+    <string name="bottom_bar_news">Accueil</string>
+    <string name="bottom_bar_local">M Local</string>
+    <string name="bottom_bar_my_articles">Mes Favoris</string>
+    <string name="bottom_bar_videos">Vidéos</string>
+    <string name="bottom_bar_sections">Sections</string>
+
+    <string name="info_button_save_saved">Saved</string>
+    <string name="info_button_save_removed">Removed</string>
+    <string name="info_saved_article_page">Sauvegardez vos articles préférés pour les retrouver ensuite ici.</string>
+    <string name="title_saved_article_page">Aucun article sauvegardé</string>
+    <string name="info_favorite_article_page">Ajoutez des sections dans vos favoris pour obtenir des articles recommandés.</string>
+    <string name="title_favorite_article_page">Aucun article recommandé</string>
+    <string name="info_not_found_email_app">Aucune application de messagerie trouvée</string>
+    <string name="info_error_internet">Veuillez vérifier votre connexion internet.</string>
+    <string name="info_video_error">Pour lire la vidéo, cliquez ici et vous serez rediriger vers le site de journalmetro.com</string>
+    <string name="info_partner">En collaboration avec notre partenaire</string>
+
+    <string name="title_sharing">Partager l\'article avec:</string>
+    <string name="title_article_similar">Articles similaires</string>
+    <string name="title_article_suggested">Articles recommandés par l’auteur</string>
+    <string name="title_section_all">Tout</string>
+    <string name="title_my_article_list_saved">Sauvegardés</string>
+    <string name="title_my_article_list_recommended">Recommandés</string>
+    <string name="title_borough_list">Quartiers</string>
+    <string name="title_local_montreal">Montreal</string>
+    <string name="title_error_internet">Le chargement de la page a échoué. </string>
+
+    <string name="message_sections">"Ce projet est réalisé grâce au soutien financier du\n\ngouvernement du Québec."</string>
+
+    <string name="subtitle_explore_list">Contenus partenaires</string>
+
+    <string name="search_label">Rechercher</string>
+    <string name="cancel">Annuler</string>
+    <string name="search_description">Vous pouvez rechercher des actualités, vidéos, auteur(e)s et plus encore.</string>
+    <string name="recent_search_label">Recherches récentes</string>
+    <string name="remove">Supprimer</string>
+    <string name="explore_heading">Explorez</string>
+    <string name="daily_recap">Résumé quotidien</string>
+    <string name="metro_eye">Métro à l\'oeil</string>
+    <string name="favourites">Vote populaire</string>
+
+    <string name="metro_jobs">Métro Emplois</string>
+    <string name="contact_us">Contactez-nous</string>
+    <string name="advertise_with_us">Annoncez avec nous</string>
+    <string name="terms_of_use">Conditions d’utilisation</string>
+    <string name="editor_email" translatable="false">info@journalmetro.com</string>
+
+    <string name="in_news">À la Une</string>
+    <string name="breaking_news">DERNIÈRE HEURE</string>
+    <string name="detail_photo_tag">Photo :&#160;</string>
+
+</resources>

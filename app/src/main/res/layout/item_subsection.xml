@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.journalmetro.app.section.model.SectionItem" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/subsection_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/subsection_text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/browser_actions_context_menu_min_padding"
+                android:layout_marginStart="@dimen/size_subsections_item_text_margin_left"
+                android:textColor="@color/colorTextGrey_1"
+                android:text="@{item.name}"
+                android:fontFamily="@font/acumin_pro_regular"
+                tools:text="Test" />
+
+            <ImageView
+                android:id="@+id/subsection_favorite"
+                android:layout_width="@dimen/size_subsections_item_icon_star_size"
+                android:layout_height="@dimen/size_subsections_item_icon_star_size"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="@dimen/size_subsections_item_icon_star_margin_right"
+                android:src="@{item.isFav ? @drawable/ic_star_selected : @drawable/ic_star_unselected}"
+                tools:src="@drawable/ic_star_unselected"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorDividerBorough"
+            android:layout_marginStart="60dp"
+            android:layout_gravity="bottom"/>
+    </LinearLayout>
+</layout>

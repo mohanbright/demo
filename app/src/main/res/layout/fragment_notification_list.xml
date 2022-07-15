@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.recyclerview.widget.RecyclerView" />
+
+        <variable
+            name="adapter"
+            type="com.journalmetro.app.ui.common.adapter.OmniAdapter" />
+
+        <variable
+            name="viewModel"
+            type="com.journalmetro.app.ui.notification.NotificationViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/list_posts"
+                layout="@layout/component_list_with_loading_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                bind:adapter="@{adapter}"
+                bind:isLoading="@{viewModel.isLoading}"
+                bind:orientation="@{RecyclerView.VERTICAL}" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
